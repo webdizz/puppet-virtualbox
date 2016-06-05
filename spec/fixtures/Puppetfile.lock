@@ -1,0 +1,8 @@
+GITHUBTARBALL
+  remote: ripienaar/puppet-module-data
+  specs:
+    module_data (0.0.1)
+
+DEPENDENCIES
+  module_data (= 0.0.1)
+

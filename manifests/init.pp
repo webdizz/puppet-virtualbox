@@ -4,8 +4,8 @@
 #
 #   include virtualbox
 class virtualbox (
-  $version = '4.3.14',
-  $patch_level = '95030'
+  $version = $virtualbox::version,
+  $patchlevel = $virtualbox::patchlevel,
 ) {
 
   exec { 'Kill Virtual Box Processes':
@@ -14,10 +14,10 @@ class virtualbox (
     refreshonly => true,
   }
 
-  package { "VirtualBox-${version}-${patch_level}":
+  package { "VirtualBox-${version}-${patchlevel}":
     ensure   => installed,
     provider => 'pkgdmg',
-    source   => "http://download.virtualbox.org/virtualbox/${version}/VirtualBox-${version}-${patch_level}-OSX.dmg",
+    source   => "http://download.virtualbox.org/virtualbox/${version}/VirtualBox-${version}-${patchlevel}-OSX.dmg",
     require  => Exec['Kill Virtual Box Processes'],
   }
 }
